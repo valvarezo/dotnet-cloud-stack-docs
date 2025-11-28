@@ -240,15 +240,3 @@ az storage container create \
 | `aks_cluster_fqdn` | FQDN del clúster |
 | `acr_login_server` | URL del ACR |
 | `get_credentials_command` | Comando para obtener kubeconfig |
-
-## Costos Estimados
-
-| Recurso | SKU | Costo Mensual Estimado |
-|---------|-----|------------------------|
-| AKS (Pool Sistema) | D2s_v3 x2 | ~$140 USD |
-| AKS (Pool Cargas) | D4s_v3 x2 | ~$280 USD |
-| ACR | Standard | ~$20 USD |
-| Log Analytics | Por GB | ~$30 USD |
-| **Total** | | **~$470 USD/mes** |
-
-*Precios aproximados para la región East US 2. Usar la Calculadora de Precios de Azure para estimaciones precisas.*
