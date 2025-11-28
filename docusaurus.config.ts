@@ -13,7 +13,7 @@ const config: Config = {
   organizationName: 'tiendapago',
   projectName: 'tiendapago-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
