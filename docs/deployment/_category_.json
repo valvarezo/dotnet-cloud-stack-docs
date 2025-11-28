@@ -1,5 +1,14 @@
 {
   "label": "Despliegue",
   "position": 3,
-  "collapsed": false
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Guías de Despliegue",
+    "description": "Documentación completa para desplegar la aplicación Finance en diferentes entornos, desde desarrollo local hasta producción en la nube.",
+    "keywords": ["despliegue", "kubernetes", "minikube", "argocd", "gitops", "azure", "aks"]
+  },
+  "customProps": {
+    "icon": "🚀"
+  }
 }
