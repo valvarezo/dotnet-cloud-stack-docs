@@ -1,0 +1,1255 @@
+/**
+ * ============================================
+ * Tienda Pago - Documentación Técnica
+ * Sistema de diseño basado en la identidad de marca
+ * Colores: Verde Teal + Naranja Coral
+ * ============================================
+ */
+
+/* ============================================
+   IMPORTANTE: Eliminar líneas de Docusaurus
+   ============================================ */
+.main::before,
+.main::after,
+.main > *::before,
+.main > *::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Eliminar cualquier línea horizontal en el main */
+.main hr,
+.main > hr,
+.main section hr,
+.main .container hr {
+  display: none !important;
+  border: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Eliminar líneas después del hero */
+.hero + *,
+.hero ~ *,
+.hero + * hr,
+.hero ~ * hr {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+.hero + *::before,
+.hero ~ *::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Sobrescribir estilos globales de Docusaurus */
+main.main section,
+main.main > section,
+.main section,
+.main > section {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Eliminar líneas del container */
+.main .container,
+.main > .container,
+.main section .container,
+main .container {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* ============================================
+   Variables Globales - Tienda Pago Colors
+   ============================================ */
+:root {
+  /* Colores Primarios - Verde Teal Tienda Pago */
+  --tp-green-dark: #007A5E;
+  --tp-green-primary: #00B67A;
+  --tp-green-light: #00D68F;
+  --tp-green-pale: #E8FFF5;
+  
+  /* Colores Secundarios - Naranja Coral */
+  --tp-orange-dark: #E85A2E;
+  --tp-orange-primary: #FF6B35;
+  --tp-orange-light: #FF8F5C;
+  --tp-orange-pale: #FFF3EE;
+  
+  /* Neutros */
+  --tp-dark: #1A1A2E;
+  --tp-gray-dark: #4A4A5A;
+  --tp-gray-medium: #7A7A8A;
+  --tp-gray-light: #E8E8EE;
+  --tp-white: #FFFFFF;
+  --tp-bg: #FAFCFF;
+  
+  /* Gradientes */
+  --primary-gradient: linear-gradient(135deg, var(--tp-green-dark) 0%, var(--tp-green-primary) 50%, var(--tp-green-light) 100%);
+  --accent-gradient: linear-gradient(135deg, var(--tp-orange-dark) 0%, var(--tp-orange-primary) 100%);
+  
+  /* Sombras */
+  --card-shadow: 0 4px 20px rgba(0, 182, 122, 0.08);
+  --card-shadow-hover: 0 12px 40px rgba(0, 182, 122, 0.15);
+  --card-border: rgba(0, 182, 122, 0.12);
+  --card-border-hover: rgba(0, 182, 122, 0.3);
+  
+  /* Texto */
+  --text-primary: #1A1A2E;
+  --text-secondary: #4A4A5A;
+  
+  /* Transiciones y otros */
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --section-padding: 7rem 0;
+  --card-radius: 20px;
+  --icon-size: 48px;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+.main {
+  overflow-x: hidden;
+  background: var(--tp-bg);
+}
+
+.main > section {
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+.main .container {
+  border: none !important;
+  border-top: none !important;
+}
+
+/* ============================================
+   Hero Section - Tienda Pago Style
+   ============================================ */
+.hero {
+  position: relative;
+  padding: 4rem 0 4rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #004D40 0%, #007A5E 30%, #00B67A 60%, #00D68F 100%);
+  margin-top: -60px;
+  padding-top: calc(60px + 4rem);
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.heroGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.heroGlow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.heroParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.heroParticles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 15s linear infinite;
+}
+
+.heroParticles span:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.heroParticles span:nth-child(2) {
+  left: 40%;
+  animation-delay: 5s;
+}
+
+.heroParticles span:nth-child(3) {
+  left: 60%;
+  animation-delay: 10s;
+}
+
+.heroParticles span:nth-child(4) {
+  left: 80%;
+  animation-delay: 7s;
+}
+
+@keyframes particleFloat {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 1000px;
+  margin: -3rem auto 0;
+  padding-bottom: 4rem;
+  animation: heroFadeIn 1s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.8rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.labelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tp-orange-primary);
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.8);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+.heroTitle {
+  font-size: 4.2rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: white;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heroGradient {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #E8FFF5 50%, #B8FFE8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 40px rgba(0, 214, 143, 0.4));
+  position: relative;
+}
+
+.heroDescription {
+  font-size: 1.3rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+  font-weight: 400;
+}
+
+.heroStats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  padding: 1.5rem 2.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: inline-flex;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.heroStatItem {
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.heroStatValue {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.heroStatLabel {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heroStatDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.heroWave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+.heroWave svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Botones Uniformes - Tienda Pago Style
+   ============================================ */
+.btnPrimary,
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: var(--transition);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnPrimary {
+  background: white;
+  color: var(--tp-green-dark) !important;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.btnPrimary:hover::before {
+  left: 100%;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  color: var(--tp-green-dark) !important;
+}
+
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  color: white !important;
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+.section {
+  padding: var(--section-padding);
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.resourcesSection {
+  padding: var(--section-padding);
+  background: var(--tp-green-pale);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  line-height: 1.7;
+}
+
+/* ============================================
+   Projects Grid - Tienda Pago Style
+   ============================================ */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.projectCard {
+  background: white;
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.projectCard:hover::before {
+  transform: scaleX(1);
+}
+
+.projectCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* ============================================
+   Card Elements
+   ============================================ */
+.cardIcon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 182, 122, 0.1) 0%, rgba(0, 214, 143, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--tp-green-primary);
+  transition: var(--transition);
+}
+
+.projectCard:hover .cardIcon,
+.featureCard:hover .cardIcon,
+.resourceCard:hover .cardIcon {
+  background: linear-gradient(135deg, rgba(0, 182, 122, 0.15) 0%, rgba(0, 214, 143, 0.1) 100%);
+  transform: scale(1.1);
+}
+
+.cardBadges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardBadge {
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.cardArrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--tp-green-primary);
+  transition: var(--transition);
+}
+
+.projectCard:hover .cardArrow,
+.resourceCard:hover .cardArrow {
+  gap: 0.8rem;
+  color: var(--tp-green-dark);
+}
+
+/* ============================================
+   Features Grid
+   ============================================ */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.featureCard {
+  background: white;
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+/* ============================================
+   Resources Grid
+   ============================================ */
+.resourcesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.resourceCard {
+  background: white;
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.resourceCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.resourceCard:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.resourceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-border-hover);
+}
+
+.resourceCard .cardArrow {
+  margin-top: auto;
+  color: var(--tp-orange-primary);
+}
+
+.resourceCard:hover .cardArrow {
+  color: var(--tp-orange-dark);
+}
+
+/* ============================================
+   Stats Section
+   ============================================ */
+.statsSection {
+  padding: var(--section-padding);
+  background: var(--primary-gradient);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.statsSection .sectionTitle,
+.statsSection .sectionSubtitle {
+  color: white;
+}
+
+.statsSection .sectionTitle::after {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.statIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.statValue {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+/* ============================================
+   CTA Section
+   ============================================ */
+.ctaSection {
+  padding: var(--section-padding);
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ctaCard {
+  text-align: center;
+  padding: 5rem 3rem;
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  box-shadow: var(--card-shadow-hover);
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(0, 182, 122, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.ctaDescription {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+  position: relative;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.ctaButtons .btnPrimary {
+  background: var(--primary-gradient);
+  color: white !important;
+}
+
+.ctaButtons .btnPrimary:hover {
+  background: linear-gradient(135deg, var(--tp-green-dark) 0%, var(--tp-green-primary) 100%);
+  color: white !important;
+}
+
+.ctaButtons .btnSecondary {
+  background: transparent;
+  color: var(--tp-green-primary) !important;
+  border: 2px solid var(--tp-green-primary);
+}
+
+.ctaButtons .btnSecondary:hover {
+  background: var(--tp-green-pale);
+  color: var(--tp-green-dark) !important;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 996px) {
+  :root {
+    --section-padding: 5rem 0;
+  }
+
+  .hero {
+    padding: 3.5rem 0 3.5rem;
+    padding-top: calc(60px + 3.5rem);
+  }
+
+  .heroContent {
+    margin-top: -2rem;
+    padding-bottom: 3rem;
+  }
+
+  .heroTitle {
+    font-size: 3.2rem;
+  }
+
+  .heroDescription {
+    font-size: 1.15rem;
+  }
+
+  .heroStats {
+    flex-wrap: wrap;
+    padding: 1.2rem 2rem;
+  }
+
+  .heroStatItem {
+    padding: 0 1.5rem;
+  }
+
+  .heroStatValue {
+    font-size: 1.8rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .projectsGrid,
+  .featuresGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 4rem 0;
+  }
+
+  .hero {
+    padding: 3rem 0 3rem;
+    padding-top: calc(60px + 3rem);
+  }
+
+  .heroContent {
+    margin-top: -1.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroDescription {
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .heroStats {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .heroStatItem {
+    padding: 0;
+  }
+
+  .heroStatDivider {
+    display: none;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
+  .projectsGrid,
+  .featuresGrid,
+  .resourcesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projectCard,
+  .featureCard,
+  .resourceCard,
+  .statCard {
+    padding: 2rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statValue {
+    font-size: 2.5rem;
+  }
+
+  .ctaCard {
+    padding: 3rem 2rem;
+  }
+
+  .ctaTitle {
+    font-size: 2rem;
+  }
+
+  .ctaDescription {
+    font-size: 1.05rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroStatValue {
+    font-size: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+}
+
+/* ============================================
+   Dark Theme - Tienda Pago
+   ============================================ */
+[data-theme='dark'] {
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --card-border: rgba(0, 214, 143, 0.15);
+  --card-border-hover: rgba(0, 214, 143, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .main {
+  background: #1b1b1d;
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, #002018 0%, #003D2E 30%, #005A45 60%, #007A5E 100%);
+}
+
+[data-theme='dark'] .heroWave svg path {
+  fill: #1b1b1d;
+}
+
+[data-theme='dark'] .heroLabel {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme='dark'] .heroTitle {
+  color: white;
+}
+
+[data-theme='dark'] .heroGradient {
+  background: linear-gradient(135deg, #00D68F 0%, #00B67A 50%, #00876B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .heroDescription {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] .heroStats {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .heroStatValue {
+  color: white;
+}
+
+[data-theme='dark'] .heroStatLabel {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .heroStatDivider {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .btnPrimary {
+  background: linear-gradient(135deg, var(--tp-green-primary) 0%, var(--tp-green-dark) 100%);
+  color: white !important;
+}
+
+[data-theme='dark'] .btnPrimary:hover {
+  background: linear-gradient(135deg, var(--tp-green-light) 0%, var(--tp-green-primary) 100%);
+  color: white !important;
+}
+
+[data-theme='dark'] .section,
+[data-theme='dark'] .statsSection,
+[data-theme='dark'] .resourcesSection,
+[data-theme='dark'] .ctaSection {
+  background: transparent;
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+[data-theme='dark'] .resourcesSection {
+  background: rgba(0, 182, 122, 0.05);
+}
+
+[data-theme='dark'] .main > section {
+  border: none !important;
+  border-top: none !important;
+}
+
+[data-theme='dark'] .projectCard,
+[data-theme='dark'] .featureCard,
+[data-theme='dark'] .resourceCard,
+[data-theme='dark'] .statCard,
+[data-theme='dark'] .ctaCard {
+  background: rgba(26, 31, 46, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme='dark'] .btnSecondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-color: var(--card-border);
+}
+
+[data-theme='dark'] .btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .cardIcon,
+[data-theme='dark'] .statIcon {
+  background: linear-gradient(135deg, rgba(0, 214, 143, 0.15) 0%, rgba(0, 182, 122, 0.1) 100%);
+  color: var(--tp-green-light);
+}
+
+[data-theme='dark'] .projectCard:hover .cardIcon,
+[data-theme='dark'] .featureCard:hover .cardIcon,
+[data-theme='dark'] .resourceCard:hover .cardIcon,
+[data-theme='dark'] .statCard:hover .statIcon {
+  background: linear-gradient(135deg, rgba(0, 214, 143, 0.2) 0%, rgba(0, 182, 122, 0.15) 100%);
+}
+
+[data-theme='dark'] .ctaButtons .btnPrimary {
+  background: linear-gradient(135deg, var(--tp-green-primary) 0%, var(--tp-green-dark) 100%);
+  color: white !important;
+}
+
+[data-theme='dark'] .ctaButtons .btnSecondary {
+  background: transparent;
+  color: var(--tp-green-light) !important;
+  border-color: var(--tp-green-primary);
+}
+
+/* ============================================
+   SOLUCIÓN DEFINITIVA - Eliminar líneas horizontales
+   ============================================ */
+:global(main hr),
+:global(main) :global(hr),
+:global(.main hr),
+:global(.main) :global(hr) {
+  display: none !important;
+  border: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+:global(main section)::before,
+:global(main section)::after,
+:global(main) :global(section)::before,
+:global(main) :global(section)::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  background: none !important;
+}
+
+:global(main section),
+:global(main) :global(section) {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+:global(.container)::before,
+:global(.container)::after,
+:global(main .container)::before,
+:global(main .container)::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Eliminar específicamente líneas después del hero */
+:global(.hero + *),
+:global(.hero ~ *) {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+
+:global(.hero + *)::before,
+:global(.hero ~ *)::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  height: 0 !important;
+}

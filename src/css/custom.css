@@ -1,0 +1,500 @@
+/**
+ * ============================================
+ * TIENDA PAGO - DOCUMENTACIÓN TÉCNICA
+ * CSS Global para Docusaurus
+ * Paleta: Verde Teal + Naranja Coral
+ * ============================================
+ */
+
+/* ============================================
+   VARIABLES GLOBALES - TIENDA PAGO
+   ============================================ */
+:root {
+  /* Colores Primarios - Verde Teal */
+  --tp-green-dark: #007A5E;
+  --tp-green-primary: #00B67A;
+  --tp-green-light: #00D68F;
+  --tp-green-pale: #E8FFF5;
+  
+  /* Colores Secundarios - Naranja Coral */
+  --tp-orange-dark: #E85A2E;
+  --tp-orange-primary: #FF6B35;
+  --tp-orange-light: #FF8F5C;
+  --tp-orange-pale: #FFF3EE;
+  
+  /* Docusaurus Variables */
+  --ifm-color-primary: #00B67A;
+  --ifm-color-primary-dark: #00A36D;
+  --ifm-color-primary-darker: #009A67;
+  --ifm-color-primary-darkest: #007F55;
+  --ifm-color-primary-light: #00C987;
+  --ifm-color-primary-lighter: #00D28D;
+  --ifm-color-primary-lightest: #00E79C;
+  
+  --ifm-link-color: var(--tp-green-primary);
+  --ifm-menu-color-active: var(--tp-green-primary);
+  
+  --docusaurus-background-color: #fafcff !important;
+}
+
+/* Eliminar TODAS las líneas horizontales globalmente */
+main hr,
+hr {
+  display: none !important;
+  border: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Eliminar bordes de secciones */
+main section,
+main > section,
+section {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Eliminar líneas de containers */
+.container,
+main .container,
+.main .container {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* Eliminar pseudo-elementos que pueden crear líneas */
+main::before,
+main::after,
+main > *::before,
+main > *::after,
+section::before,
+section::after {
+  border: none !important;
+  background: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+/* Específico para la página de inicio */
+[class*="main"] section,
+[class*="main"] > section {
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* Eliminar cualquier divisor visual */
+.divider,
+[class*="divider"],
+[class*="separator"] {
+  display: none !important;
+}
+
+/* Dark theme lines */
+[data-theme='dark'] main section,
+[data-theme='dark'] main > section,
+[data-theme='dark'] section {
+  border: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+[data-theme='dark'] hr {
+  display: none !important;
+}
+
+/* ============================================
+   PÁGINA HOME - Fondo uniforme
+   ============================================ */
+.main-wrapper main,
+main[class*="main"] {
+  background: #fafcff !important;
+}
+
+[data-theme='dark'] .main-wrapper main,
+[data-theme='dark'] main[class*="main"] {
+  background: #1b1b1d !important;
+}
+
+/* ============================================
+   BACKGROUND COLOR GLOBAL
+   ============================================ */
+html,
+body {
+  background-color: #fafcff !important;
+}
+
+main,
+.main-wrapper,
+[class*="docMainContainer"],
+[class*="mainContainer"] {
+  background-color: #fafcff !important;
+}
+
+article,
+.markdown,
+[class*="docPage"],
+[class*="docRoot"] {
+  background-color: #fafcff !important;
+}
+
+aside,
+[class*="sidebar"],
+[class*="docSidebar"] {
+  background-color: #fafcff !important;
+}
+
+.container {
+  background-color: transparent !important;
+}
+
+/* ============================================
+   NAVBAR/HEADER - Gradiente Tienda Pago
+   ============================================ */
+nav.navbar,
+.navbar {
+  background: linear-gradient(135deg, #004D40 0%, #007A5E 40%, #00B67A 70%, #00D68F 100%) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+  border-bottom: none !important;
+}
+
+/* Links del navbar */
+.navbar__link {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Logo y título */
+.navbar__brand,
+.navbar__title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.navbar__logo {
+  filter: brightness(1.1) !important;
+}
+
+/* Botón de menú móvil */
+.navbar__toggle {
+  color: #ffffff !important;
+}
+
+/* Dropdown menu */
+.dropdown__menu {
+  background: linear-gradient(135deg, #007A5E 0%, #00B67A 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+}
+
+.dropdown__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dropdown__link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Botón de búsqueda */
+.DocSearch-Button {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.DocSearch-Button:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Toggle de tema */
+.navbar__item button[class*="toggle"],
+.navbar__item button[class*="colorMode"] {
+  color: #ffffff !important;
+}
+
+/* Dark theme navbar */
+[data-theme='dark'] nav.navbar,
+[data-theme='dark'] .navbar {
+  background: linear-gradient(135deg, #001A14 0%, #002E24 40%, #004D40 70%, #007A5E 100%) !important;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme='dark'] .dropdown__menu {
+  background: linear-gradient(135deg, #002E24 0%, #004D40 100%) !important;
+}
+
+/* Sidebar móvil */
+.navbar-sidebar {
+  background: linear-gradient(180deg, #004D40 0%, #007A5E 50%, #00B67A 100%) !important;
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: linear-gradient(180deg, #001A14 0%, #002E24 50%, #004D40 100%) !important;
+}
+
+.navbar-sidebar__item {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-sidebar__item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* ============================================
+   DARK THEME BACKGROUNDS
+   ============================================ */
+[data-theme='dark'] {
+  --docusaurus-background-color: #1b1b1d !important;
+}
+
+[data-theme='dark'] html,
+[data-theme='dark'] body {
+  background-color: #1b1b1d !important;
+}
+
+[data-theme='dark'] main,
+[data-theme='dark'] .main-wrapper,
+[data-theme='dark'] [class*="docMainContainer"],
+[data-theme='dark'] [class*="mainContainer"] {
+  background-color: #1b1b1d !important;
+}
+
+[data-theme='dark'] article,
+[data-theme='dark'] .markdown,
+[data-theme='dark'] [class*="docPage"],
+[data-theme='dark'] [class*="docRoot"] {
+  background-color: #1b1b1d !important;
+}
+
+[data-theme='dark'] aside,
+[data-theme='dark'] [class*="sidebar"],
+[data-theme='dark'] [class*="docSidebar"] {
+  background-color: #1b1b1d !important;
+}
+
+/* ============================================
+   FOOTER - Gradiente Tienda Pago
+   ============================================ */
+.footer {
+  background: linear-gradient(135deg, #004D40 0%, #007A5E 40%, #00B67A 100%) !important;
+}
+
+.footer__title {
+  color: #ffffff !important;
+}
+
+.footer__link-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.footer__link-item:hover {
+  color: #ffffff !important;
+}
+
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #001A14 0%, #002E24 40%, #004D40 100%) !important;
+}
+
+/* ============================================
+   SIDEBAR LINKS - Tienda Pago Style
+   ============================================ */
+.menu__link {
+  transition: all 0.3s ease !important;
+}
+
+.menu__link--active {
+  color: var(--tp-green-primary) !important;
+  font-weight: 600 !important;
+}
+
+.menu__link:hover {
+  color: var(--tp-green-dark) !important;
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: var(--tp-green-light) !important;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: var(--tp-green-light) !important;
+}
+
+/* ============================================
+   TABLE OF CONTENTS - Tienda Pago Style
+   ============================================ */
+.table-of-contents__link--active,
+.table-of-contents__link:hover {
+  color: var(--tp-green-primary) !important;
+}
+
+[data-theme='dark'] .table-of-contents__link--active,
+[data-theme='dark'] .table-of-contents__link:hover {
+  color: var(--tp-green-light) !important;
+}
+
+/* ============================================
+   CODE BLOCKS - Tienda Pago Accent
+   ============================================ */
+.prism-code {
+  border-left: 4px solid var(--tp-green-primary) !important;
+}
+
+/* ============================================
+   PAGINATION - Tienda Pago Style
+   ============================================ */
+.pagination-nav__link {
+  border-color: var(--tp-green-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--tp-green-dark) !important;
+  background: var(--tp-green-pale) !important;
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  background: rgba(0, 182, 122, 0.1) !important;
+}
+
+/* ============================================
+   BADGES - Tienda Pago Colors
+   ============================================ */
+.badge--primary {
+  background-color: var(--tp-green-primary) !important;
+}
+
+.badge--secondary {
+  background-color: var(--tp-orange-primary) !important;
+}
+
+/* ============================================
+   ALERTS/ADMONITIONS - Tienda Pago Style
+   ============================================ */
+.alert--success {
+  --ifm-alert-background-color: var(--tp-green-pale);
+  --ifm-alert-border-color: var(--tp-green-primary);
+}
+
+.alert--info {
+  --ifm-alert-background-color: #E6F7FF;
+  --ifm-alert-border-color: #1890FF;
+}
+
+.alert--warning {
+  --ifm-alert-background-color: var(--tp-orange-pale);
+  --ifm-alert-border-color: var(--tp-orange-primary);
+}
+
+/* ============================================
+   BUTTONS - Tienda Pago Style
+   ============================================ */
+.button--primary {
+  background-color: var(--tp-green-primary) !important;
+  border-color: var(--tp-green-primary) !important;
+}
+
+.button--primary:hover {
+  background-color: var(--tp-green-dark) !important;
+  border-color: var(--tp-green-dark) !important;
+}
+
+.button--secondary {
+  background-color: var(--tp-orange-primary) !important;
+  border-color: var(--tp-orange-primary) !important;
+}
+
+.button--secondary:hover {
+  background-color: var(--tp-orange-dark) !important;
+  border-color: var(--tp-orange-dark) !important;
+}
+
+/* ============================================
+   SCROLLBAR - Tienda Pago Style
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tp-green-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tp-green-dark);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: var(--tp-green-primary);
+}
+
+/* ============================================
+   SELECTION - Tienda Pago Style
+   ============================================ */
+::selection {
+  background: var(--tp-green-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--tp-green-primary);
+  color: white;
+}
+
+/* ============================================
+   FOCUS STATES - Accessibility
+   ============================================ */
+*:focus-visible {
+  outline: 2px solid var(--tp-green-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown > * {
+  animation: fadeIn 0.4s ease-out;
+}
